@@ -4,9 +4,6 @@
       <h1>My Friends</h1>
     </header>
     <new-friend
-      :name="newName"
-      :phone="newPhone"
-      :email="newEmail"
       @add-friend="addNewFriend"
     ></new-friend>
     <ul>
@@ -19,6 +16,7 @@
         :email="friend.email"
         :favorite="friend.isFavorite"
         @toggle-favorite="toggleFavoriteStatus"
+        @delete-friend="deleteFriend"
       ></friend-contact>
     </ul>
   </section>
@@ -58,13 +56,16 @@ export default {
     },
     addNewFriend(name, phone, email) {
       const newFriend = {
-        id: name,
+        id: new Date().toISOString(),
         name,
         phone,
         email,
         isFavorite: false
       }
       this.friends.push(newFriend)
+    },
+    deleteFriend(id) {
+      this.friends = this.friends.filter(friend => friend.id !== id)
     }
   }
 };

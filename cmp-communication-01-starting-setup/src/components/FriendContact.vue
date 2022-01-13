@@ -13,11 +13,13 @@
         {{ email }}
       </li>
     </ul>
+    <button @click="deleteFriend">Delete</button>
   </li>
 </template>
 
 <script>
 export default {
+  emits: ['toggleFavorite', 'deleteFriend'],
   data() {
     return {
       detailsAreVisible: false,
@@ -36,6 +38,9 @@ export default {
     },
     toggleFavorite() {
       this.$emit('toggle-favorite', this.id);
+    },
+    deleteFriend() {
+      this.$emit('delete-friend', this.id)
     }
   }
 };
