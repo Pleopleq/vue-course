@@ -1,11 +1,11 @@
 <template>
     <li>
         <div>
-            <header>
-                <h2>{{title}}</h2>
+            <header class="item-header">
+                <h3>{{title}}</h3>
                 <button>Delete</button>
             </header>
-            <div>
+            <div class="item-body">
                 <p>{{description}}</p>
                 <a :href="link" target="_blank">View Resource</a>
             </div>
@@ -24,6 +24,16 @@ export default {
 }
 </script>
 
-<style>
-
+<style scoped>
+    li {
+        padding: 1rem;
+    }
+    a {
+        color: #DAA363;
+    }
+    .item-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
 </style>
