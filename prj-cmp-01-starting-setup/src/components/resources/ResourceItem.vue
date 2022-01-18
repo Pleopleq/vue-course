@@ -1,6 +1,6 @@
 <template>
     <li>
-        <div>
+        <base-card>
             <header class="item-header">
                 <h3>{{title}}</h3>
                 <button>Delete</button>
@@ -9,7 +9,7 @@
                 <p>{{description}}</p>
                 <a :href="link" target="_blank">View Resource</a>
             </div>
-        </div>
+        </base-card>
     </li>
 </template>
 

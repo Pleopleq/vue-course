@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import ResourceItem from './ResourceItem.vue'
+import ResourceItem from '../resources/ResourceItem.vue'
 export default {
     props: ['resources'],
     components: { ResourceItem }
