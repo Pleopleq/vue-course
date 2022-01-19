@@ -52,7 +52,7 @@ export default {
         addResource() {
             if (this.title.trim() === '' 
             || this.description.trim() === '' 
-            || this.url.trimp() === '') {
+            || this.url.trim() === '') {
                 this.isInputInvalid = true
                 return;
             }
