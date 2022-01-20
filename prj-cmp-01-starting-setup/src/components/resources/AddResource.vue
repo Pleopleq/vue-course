@@ -53,7 +53,7 @@ export default {
             if (this.title.trim() === '' 
             || this.description.trim() === '' 
             || this.url.trim() === '') {
-                this.isInputInvalid = true
+                this.isInputInvalid = true;
                 return;
             }
             this.$emit('add-resource', this.title, this.description, this.url)
