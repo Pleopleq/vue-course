@@ -16,5 +16,6 @@ export default {};
   margin: 1rem;
   grid-template-rows: 1fr 1fr;
   grid-template-columns: repeat(auto-fill, minmax(17rem, 1fr));
+  background-color: aquamarine;
 }
 </style>

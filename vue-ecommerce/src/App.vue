@@ -2,11 +2,10 @@
   <div class="main-container">
     <the-header></the-header>
     <the-sidebar>
-      <ul>
-        <li v-for="category in categories" :key="category">
-          {{ category }}
-        </li>
-      </ul>
+      <sidebar-content
+        :items="categories"
+        :title="Categories"
+      ></sidebar-content>
     </the-sidebar>
     <the-product-grid>
       <the-product
@@ -24,10 +23,17 @@ import TheProductGrid from "./components/TheProductGrid.vue";
 import TheSidebar from "./components/TheSidebar.vue";
 import TheHeader from "./components/TheHeader.vue";
 import TheProduct from "./components/TheProduct.vue";
+import SidebarContent from "./components/SidebarContent.vue";
 
 export default {
   name: "App",
-  components: { TheProductGrid, TheSidebar, TheHeader, TheProduct },
+  components: {
+    TheProductGrid,
+    TheSidebar,
+    TheHeader,
+    TheProduct,
+    SidebarContent,
+  },
   data() {
     return {
       categories: [],
@@ -57,6 +63,11 @@ export default {
 body {
   margin: 0;
   padding: 0;
+}
+.blue {
+  background-color: blue;
+  height: 120px;
+  width: 100%;
 }
 
 .main-container {
