@@ -1,18 +1,24 @@
 <template>
   <div class="product-card">
-    <slot></slot>
+    <h2>{{ product.title }}</h2>
+    <img :src="product.image" alt="" width="120" height="120" />
+    <p>{{ product.category }}</p>
+    <p>${{ product.price }}</p>
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+  props: ["product"],
+};
 </script>
 
 <style>
 .product-card {
-  padding: 1rem;
-  margin: 1rem;
-  height: 320px;
-  background-color: brown;
+  border: 1px black solid;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column;
 }
 </style>

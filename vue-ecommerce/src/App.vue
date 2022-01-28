@@ -1,9 +1,20 @@
 <template>
   <div class="main-container">
     <the-header></the-header>
-    <the-sidebar></the-sidebar>
+    <the-sidebar>
+      <ul>
+        <li v-for="category in categories" :key="category">
+          {{ category }}
+        </li>
+      </ul>
+    </the-sidebar>
     <the-product-grid>
-      <the-product v-for="item in items" :key="item"> </the-product>
+      <the-product
+        v-for="product in products"
+        :key="product.id"
+        :product="product"
+      >
+      </the-product>
     </the-product-grid>
   </div>
 </template>
@@ -19,8 +30,25 @@ export default {
   components: { TheProductGrid, TheSidebar, TheHeader, TheProduct },
   data() {
     return {
-      items: [1, 2, 3, 4, 5],
+      categories: [],
+      products: [],
     };
+  },
+  methods: {
+    getCategories() {
+      fetch("https://fakestoreapi.com/products/categories")
+        .then((res) => res.json())
+        .then((json) => (this.categories = json));
+    },
+    getProducts() {
+      fetch("https://fakestoreapi.com/products?limit=5")
+        .then((res) => res.json())
+        .then((json) => (this.products = json));
+    },
+  },
+  mounted() {
+    this.getCategories();
+    this.getProducts();
   },
 };
 </script>
@@ -33,6 +61,7 @@ body {
 
 .main-container {
   display: grid;
+  height: 100%;
   grid-template-rows: 120px 120px 1fr;
   grid-template-columns: 1fr;
   grid-template-areas:

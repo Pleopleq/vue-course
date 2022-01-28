@@ -1,5 +1,6 @@
 <template>
   <aside>
+    <h1>Categories</h1>
     <slot></slot>
   </aside>
 </template>

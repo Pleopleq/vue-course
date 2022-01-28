@@ -11,20 +11,10 @@ export default {};
 <style>
 .product-list {
   display: grid;
-  gap: 1rem;
   grid-area: main;
-  height: 100vh;
-  background-color: burlywood;
-}
-
-@media (min-width: 1200px) {
-  .product-list {
-    grid-template-columns: 1fr 1fr;
-  }
-}
-@media (min-width: 1420px) {
-  .product-list {
-    grid-template-columns: 1fr 1fr 1fr;
-  }
+  gap: 1rem;
+  margin: 1rem;
+  grid-template-rows: 1fr 1fr;
+  grid-template-columns: repeat(auto-fill, minmax(17rem, 1fr));
 }
 </style>
