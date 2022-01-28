@@ -1,6 +1,5 @@
 <template>
   <aside>
-    <h1>Categories</h1>
     <slot></slot>
   </aside>
 </template>
@@ -12,7 +11,7 @@ export default {};
 <style scoped>
 aside {
   grid-area: sidebar;
-  height: 100%;
+  padding: 1rem;
   background-color: violet;
 }
 </style>

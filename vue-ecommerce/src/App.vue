@@ -4,7 +4,7 @@
     <the-sidebar>
       <sidebar-content
         :items="categories"
-        :title="Categories"
+        :title="'Categories'"
       ></sidebar-content>
     </the-sidebar>
     <the-product-grid>

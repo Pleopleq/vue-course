@@ -1,12 +1,16 @@
 <template>
-  <div class="sidebar-content">
-    <h2>{{ title }}</h2>
-    <ul>
-      <li v-for="item of items" :key="item">
-        {{ item }}
-      </li>
-    </ul>
-  </div>
+  <section>
+    <div class="sidebar-title">
+      <h2>{{ title }}</h2>
+    </div>
+    <div class="sidebar-content">
+      <ul class="sidebar-content__list">
+        <li v-for="item of items" :key="item">
+          {{ item }}
+        </li>
+      </ul>
+    </div>
+  </section>
 </template>
 
 <script>
@@ -16,14 +20,20 @@ export default {
 </script>
 
 <style>
-.sidebar-content {
-  width: 100vw;
+.sidebar-title > h2 {
+  margin: 0;
+  text-align: center;
+}
+
+.sidebar-content__list {
+  display: flex;
+  padding: 0 1rem 0 1rem;
+  justify-content: space-between;
+  list-style-type: none;
 }
 
 @media (min-width: 1200px) {
   .sidebar-content {
-    width: 0;
-
     height: 100vh;
   }
 }
