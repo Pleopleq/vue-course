@@ -1,11 +1,14 @@
 <template>
   <div>
-    <button @click="addOne">Add {{ increaseBy }}</button>
+    <button @click="increase({ value: increaseBy })">
+      Add {{ increaseBy }}
+    </button>
     <input type="number" v-model="increaseBy" />
   </div>
 </template>
 
 <script>
+import { mapActions } from 'vuex';
 export default {
   data() {
     return {
@@ -13,12 +16,12 @@ export default {
     };
   },
   methods: {
-    addOne() {
-      this.$store.dispatch({
-        type: 'increase',
-        value: this.increaseBy,
-      });
-    },
+    // addOne() {
+    //   this.$store.dispatch({
+    //     type: 'increase',
+    //     value: this.increaseBy,
+    //   });
+    ...mapActions(['increase']),
   },
 };
 </script>
