@@ -3,8 +3,8 @@ import { createStore } from 'vuex'
 
 import App from './App.vue';
 
-const store = createStore({
-    state() {
+const counterModule = {
+    state(){
         return {
             counter: 0,
         }
@@ -15,14 +15,14 @@ const store = createStore({
         },
         increase(state, payload) {
             state.counter = state.counter + payload.value
-        }
+        },
     },
     actions: {
         increase(context, payload) {
             setTimeout(() => {
                 context.commit('increase', payload)
             }, 2000);
-        }
+        },
     },
     getters: {
         finalCounter(state) {
@@ -37,6 +37,32 @@ const store = createStore({
                 return 100
             }
             return finalCounter
+        }
+    }
+}
+
+const store = createStore({
+    modules: {
+        counter: counterModule
+    },
+    state() {
+        return {
+            isLogged: false
+        }
+    },
+    mutations: {
+        authUser(state) {
+            state.isLogged = !state.isLogged
+        }
+    },
+    actions: {
+        authUser(context) {
+            context.commit('authUser')
+        }
+    },
+    getters: {
+        isUserLogged(state) {
+            return state.isLogged
         }
     }
 })

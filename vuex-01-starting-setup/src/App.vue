@@ -1,8 +1,11 @@
 <template>
-  <base-container title="Vuex">
+  <base-container title="Vuex" v-if="isAuth">
     <the-counter></the-counter>
     <other-counter></other-counter>
     <change-counter></change-counter>
+  </base-container>
+  <base-container title="Auth">
+    <user-auth></user-auth>
   </base-container>
 </template>
 
@@ -11,6 +14,7 @@ import TheCounter from './components/TheCounter.vue';
 import BaseContainer from './components/BaseContainer.vue';
 import ChangeCounter from './components/ChangeCounter.vue';
 import OtherCounter from './components/OtherCounter.vue';
+import UserAuth from './components/UserAuth.vue'
 
 export default {
   components: {
@@ -18,6 +22,12 @@ export default {
     TheCounter,
     ChangeCounter,
     OtherCounter,
+    UserAuth
+  },
+  computed: {
+    isAuth() {
+      return this.$store.getters.isUserLogged;
+    }
   },
   methods: {
     addOne() {
