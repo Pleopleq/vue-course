@@ -1,13 +1,7 @@
 <template>
-  <h1>Coaches Avaliable</h1>
+  <h1>coaches list</h1>
 </template>
 
-<script>
-export default {
+<script></script>
 
-}
-</script>
-
-<style>
-
-</style>
+<style scoped></style>
