@@ -25,13 +25,24 @@
 </template>
 
 <script>
+
 export default {
-  inject: ['isLoggedIn', 'login', 'logout'],
   computed: {
     cart() {
       return this.$store.getters.userCart;
     },
+    isLoggedIn() {
+      return this.$store.getters.isAuthenticated
+    }
   },
+  methods: {
+    login() {
+      this.$store.dispatch('login')
+    },
+    logout() {
+      this.$store.dispatch('logout')
+    }
+  }
 };
 </script>
 
