@@ -4,7 +4,7 @@
       <h1>Coaches Avaliable</h1>
     </div>
     <section class="coachesList-container" v-if="hasCoaches">
-      <coach-details
+      <coach-item
         v-for="coach in filteredCoaches"
         :key="coach.id"
         :id="coach.id"
@@ -14,17 +14,16 @@
         :rate="coach.rate"
         :roles="coach.roles"
       >
-      </coach-details>
+      </coach-item>
     </section>
     <h3 v-else>No coaches</h3>
   </main-container>
 </template>
 
 <script>
-import CoachDetails from './CoachDetails.vue';
-
+import CoachItem from '../../components/coaches/CoachItem.vue';
 export default {
-  components: { CoachDetails },
+  components: { CoachItem },
   computed: {
     filteredCoaches() {
       return this.$store.getters['coaches'];

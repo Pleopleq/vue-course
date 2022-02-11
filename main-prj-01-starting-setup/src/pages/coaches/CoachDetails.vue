@@ -1,17 +1,13 @@
 <template>
   <base-card>
-    <h2>{{ firstName + ' ' + lastName }}</h2>
-    <span v-for="role in roles" :key="role">{{ role }}</span>
-    <p>Rating: {{ rate }}</p>
+    <h2>coaches details</h2>
     <router-view></router-view>
     <router-link to="/coaches/c1/contact">Contact</router-link>
   </base-card>
 </template>
 
 <script>
-export default {
-  props: ['id', 'firstName', 'lastName', 'rate', 'roles'],
-};
+export default {};
 </script>
 
 <style></style>
