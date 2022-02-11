@@ -9,7 +9,7 @@
           <router-link to="/coaches">All Coaches</router-link>
         </div>
         <div>
-          <router-link to="/register">Send Requests</router-link>
+          <router-link to="/request">Send Requests</router-link>
         </div>
       </div>
     </nav>
