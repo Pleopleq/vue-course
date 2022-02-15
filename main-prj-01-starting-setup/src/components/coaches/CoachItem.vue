@@ -1,7 +1,7 @@
 <template>
   <base-card>
     <h2>{{ firstName + ' ' + lastName }}</h2>
-    <span v-for="role in roles" :key="role">{{ role }}</span>
+    <span v-for="role in rolesToUpperCase" :key="role">{{ role }}</span>
     <p>Rating: {{ rate }}</p>
     <router-view></router-view>
     <router-link :to="coachContactLink">Contact</router-link>
@@ -18,6 +18,11 @@ export default {
     },
     coachDetailsLink() {
       return '/coaches/' + this.id;
+    },
+    rolesToUpperCase() {
+      return this.roles.map((role) => {
+        return role.toUpperCase();
+      });
     },
   },
 };
