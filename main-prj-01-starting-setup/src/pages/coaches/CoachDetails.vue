@@ -1,13 +1,43 @@
 <template>
-  <base-card>
-    <h2>coaches details</h2>
-    <router-view></router-view>
-    <router-link to="/coaches/c1/contact">Contact</router-link>
-  </base-card>
+  <main-container>
+    <base-card>
+      <h2>{{ fullName }}</h2>
+      <h3>${{ price }}/Hour</h3>
+      <p v-for="role in selectedCoach.roles" :key="role">{{ role }}</p>
+      <div>
+        <h2>Interested? Reach out now!</h2>
+        <button :to="contactLink">Contact</button>
+        <router-view></router-view>
+      </div>
+    </base-card>
+  </main-container>
 </template>
 
 <script>
-export default {};
+export default {
+  props: ['id'],
+  data() {
+    return {
+      selectedCoach: null,
+    };
+  },
+  computed: {
+    fullName() {
+      return this.selectedCoach.firstName + ' ' + this.selectedCoach.lastName;
+    },
+    price() {
+      return this.selectedCoach.cost;
+    },
+    contactLink() {
+      return this.$route.path + '/' + this.id + '/contact';
+    },
+  },
+  created() {
+    this.selectedCoach = this.$store.getters['coaches'].find(
+      (coach) => coach.id === this.id
+    );
+  },
+};
 </script>
 
 <style></style>

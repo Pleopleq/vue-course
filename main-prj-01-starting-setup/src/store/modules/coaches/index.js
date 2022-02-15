@@ -8,18 +8,20 @@ export default {
     return {
       coaches: [
         {
-          id: 1,
+          id: 'c1',
           firstName: 'Felix',
           lastName: 'Anducho',
           description: 'asdf',
+          cost: 15,
           rate: 8,
           roles: ['Front-End'],
         },
         {
-          id: 2,
+          id: 'c2',
           firstName: 'Luis',
           lastName: 'Anducho',
           description: 'asdf',
+          cost: 50,
           rate: 10,
           roles: ['Front-End', 'Back-End'],
         },
