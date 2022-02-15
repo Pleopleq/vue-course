@@ -3,6 +3,7 @@
     <div class="coachesList-title">
       <h1>Coaches Avaliable</h1>
     </div>
+    <the-coach-filter @change-filter="setFilters"></the-coach-filter>
     <section class="coachesList-container" v-if="hasCoaches">
       <coach-item
         v-for="coach in filteredCoaches"
@@ -22,14 +23,37 @@
 
 <script>
 import CoachItem from '../../components/coaches/CoachItem.vue';
+import TheCoachFilter from '../../components/TheCoachFilter.vue';
 export default {
-  components: { CoachItem },
+  components: { CoachItem, TheCoachFilter },
+  data() {
+    return {
+      activeFilters: {
+        frontend: true,
+        backend: true,
+      },
+    };
+  },
   computed: {
     filteredCoaches() {
-      return this.$store.getters['coaches'];
+      const coaches = this.$store.getters['coaches'];
+      return coaches.filter((coach) => {
+        if (this.activeFilters.frontend && coach.roles.includes('frontend')) {
+          return true;
+        }
+        if (this.activeFilters.backend && coach.roles.includes('backend')) {
+          return true;
+        }
+        return false;
+      });
     },
     hasCoaches() {
       return this.$store.getters['hasCoaches'];
+    },
+  },
+  methods: {
+    setFilters(updatedFilters) {
+      this.activeFilters = updatedFilters;
     },
   },
 };

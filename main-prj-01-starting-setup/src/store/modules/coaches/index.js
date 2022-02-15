@@ -14,7 +14,7 @@ export default {
           description: 'asdf',
           cost: 15,
           rate: 8,
-          roles: ['Front-End'],
+          roles: ['frontend'],
         },
         {
           id: 'c2',
@@ -23,7 +23,7 @@ export default {
           description: 'asdf',
           cost: 50,
           rate: 10,
-          roles: ['Front-End', 'Back-End'],
+          roles: ['backend'],
         },
       ],
     };
